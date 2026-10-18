@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimoire — Quang Ma Pháp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #08080a;
+            color: #e2e8f0;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        .gold-glow {
+            text-shadow: 0 0 12px rgba(234, 179, 8, 0.6), 0 0 24px rgba(234, 179, 8, 0.3);
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.15);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(234, 179, 8, 0.25);
+            border-color: rgba(234, 179, 8, 0.8);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #eab308;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-900/20 via-zinc-950 to-black -z-10"></div>
+
+    <!-- Header Section -->
+    <header class="border-b border-yellow-500/30 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-semibold tracking-widest uppercase mb-2">
+                <i class="fa-solid fa-book-bookmark text-yellow-400"></i> Grimoire Tra Cứu
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black font-cinzel text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-amber-500 gold-glow tracking-wider">
+                QUANG MA PHÁP
+            </h1>
+            <p class="text-zinc-400 text-sm md:text-base mt-2 max-w-2xl mx-auto">
+                Danh sách tổng hợp 23 chiêu thức ma pháp ánh sáng chia làm 6 cấp bậc từ Nền Tảng đến Thức Tỉnh.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+
+        <!-- Legend / Chú giải -->
+        <section class="bg-zinc-900/80 border border-yellow-500/20 rounded-2xl p-5 mb-8 backdrop-blur-sm gold-border-glow">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-yellow-400 mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-circle-info"></i> Chú Giải Phân Loại [Mã Loại]
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 text-xs">
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-yellow-400 bg-yellow-950 px-1.5 py-0.5 rounded border border-yellow-700/50">[TC]</span> Tấn công
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-amber-400 bg-amber-950 px-1.5 py-0.5 rounded border border-amber-700/50">[XP]</span> Xuyên phá
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-orange-400 bg-orange-950 px-1.5 py-0.5 rounded border border-orange-700/50">[DR]</span> Diện rộng
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-sky-400 bg-sky-950 px-1.5 py-0.5 rounded border border-sky-700/50">[KC]</span> Khống chế
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-700/50">[PT]</span> Phòng thủ
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-indigo-400 bg-indigo-950 px-1.5 py-0.5 rounded border border-indigo-700/50">[DC]</span> Di chuyển
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-purple-400 bg-purple-950 px-1.5 py-0.5 rounded border border-purple-700/50">[CH]</span> Cường hóa
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-teal-400 bg-teal-950 px-1.5 py-0.5 rounded border border-teal-700/50">[HT]</span> Hỗ trợ
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-rose-400 bg-rose-950 px-1.5 py-0.5 rounded border border-rose-700/50">[TT]</span> Tuyệt kỹ
+                </div>
+                <div class="bg-zinc-800/60 p-2 rounded border border-zinc-700/50 flex items-center gap-2">
+                    <span class="font-bold text-fuchsia-400 bg-fuchsia-950 px-1.5 py-0.5 rounded border border-fuchsia-700/50">[TH]</span> Thức tỉnh
+                </div>
+            </div>
+        </section>
+
+        <!-- Controls: Search & Filter -->
+        <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-8">
+            <!-- Tier Filter Buttons -->
+            <div class="flex flex-wrap gap-2 justify-center w-full md:w-auto" id="filter-buttons">
+                <button onclick="filterTier('ALL')" class="btn-filter active px-4 py-2 text-xs font-bold rounded-lg border border-yellow-500/50 bg-yellow-500 text-black transition-all">TẤT CẢ</button>
+                <button onclick="filterTier('D')" class="btn-filter px-4 py-2 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-yellow-500/50 transition-all">CẤP D</button>
+                <button onclick="filterTier('C')" class="btn-filter px-4 py-2 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-yellow-500/50 transition-all">CẤP C</button>
+                <button onclick="filterTier('B')" class="btn-filter px-4 py-2 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-yellow-500/50 transition-all">CẤP B</button>
+                <button onclick="filterTier('A')" class="btn-filter px-4 py-2 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-yellow-500/50 transition-all">CẤP A</button>
+                <button onclick="filterTier('S')" class="btn-filter px-4 py-2 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-yellow-500/50 transition-all">CẤP S</button>
+                <button onclick="filterTier('EX')" class="btn-filter px-4 py-2 text-xs font-bold rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 hover:border-yellow-500/50 transition-all">CẤP EX</button>
+            </div>
+
+            <!-- Search Input -->
+            <div class="relative w-full md:w-64">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
+                <input type="text" id="search-input" onkeyup="searchSkills()" placeholder="Tìm chiêu thức..." 
+                    class="w-full pl-9 pr-4 py-2 bg-zinc-900 border border-zinc-700 rounded-lg text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-yellow-500 transition-all">
+            </div>
+        </div>
+
+        <!-- Skills Container -->
+        <div id="skills-list" class="space-y-10">
+
+            <!-- CẤP D -->
+            <div class="skill-group" data-tier="D">
+                <div class="flex items-center gap-3 mb-4 border-b border-zinc-800 pb-2">
+                    <span class="px-3 py-1 bg-zinc-800 text-yellow-400 font-black font-cinzel text-lg rounded border border-yellow-500/30">CẤP D</span>
+                    <h3 class="font-cinzel text-lg font-bold text-zinc-200 uppercase tracking-wide">Chiêu Thức Nền Tảng</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- D-01 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang đạn d-01 tc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">D-01 · QUANG ĐẠN</span>
+                            <span class="text-xs px-2 py-0.5 bg-yellow-950 text-yellow-400 border border-yellow-700/50 rounded font-bold">[TC]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Bắn ra những viên đạn ánh sáng tốc độ cao, thích hợp để tấn công nhanh và liên tục.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Nhanh, dễ sử dụng, tiêu hao ma lực thấp.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Sát thương đơn lẻ không cao, dễ bị chặn bởi phòng thủ mạnh.</p>
+                        </div>
+                    </div>
+                    <!-- D-02 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang nhận d-02 tc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">D-02 · QUANG NHẬN</span>
+                            <span class="text-xs px-2 py-0.5 bg-yellow-950 text-yellow-400 border border-yellow-700/50 rounded font-bold">[TC]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo lưỡi kiếm ánh sáng trên tay để chém cận chiến.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Linh hoạt, dễ kết hợp với kỹ thuật kiếm thuật.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Tầm đánh ngắn, cần áp sát đối thủ.</p>
+                        </div>
+                    </div>
+                    <!-- D-03 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang bộ d-03 dc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">D-03 · QUANG BỘ</span>
+                            <span class="text-xs px-2 py-0.5 bg-indigo-950 text-indigo-400 border border-indigo-700/50 rounded font-bold">[DC]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tập trung ánh sáng dưới chân để tăng tốc độ di chuyển trong thời gian ngắn.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Né đòn nhanh, áp sát hoặc rút lui hiệu quả.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Khó đổi hướng liên tục, tiêu hao ma lực nếu duy trì lâu.</p>
+                        </div>
+                    </div>
+                    <!-- D-04 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang thuẫn d-04 pt">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">D-04 · QUANG THUẪN</span>
+                            <span class="text-xs px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-700/50 rounded font-bold">[PT]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo một tấm khiên ánh sáng để chặn đòn tấn công.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Kích hoạt nhanh, bảo vệ bản thân trước đòn đánh thông thường.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Có thể vỡ khi chịu đòn quá mạnh hoặc liên tiếp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CẤP C -->
+            <div class="skill-group" data-tier="C">
+                <div class="flex items-center gap-3 mb-4 border-b border-zinc-800 pb-2">
+                    <span class="px-3 py-1 bg-zinc-800 text-yellow-400 font-black font-cinzel text-lg rounded border border-yellow-500/30">CẤP C</span>
+                    <h3 class="font-cinzel text-lg font-bold text-zinc-200 uppercase tracking-wide">Chiêu Thức Phát Triển</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- C-05 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang thương c-05 xp">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">C-05 · QUANG THƯƠNG</span>
+                            <span class="text-xs px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-700/50 rounded font-bold">[XP]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo một ngọn thương ánh sáng tập trung năng lượng vào mũi nhọn để đâm xuyên phòng thủ.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Khả năng xuyên phá cao, hiệu quả khi tấn công mục tiêu đơn.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Đường bay tương đối thẳng, có thể bị né tránh.</p>
+                        </div>
+                    </div>
+                    <!-- C-06 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang chấn c-06 dr">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">C-06 · QUANG CHẤN</span>
+                            <span class="text-xs px-2 py-0.5 bg-orange-950 text-orange-400 border border-orange-700/50 rounded font-bold">[DR]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Phóng ra một đợt sóng ánh sáng từ vị trí người thi triển, đánh bật đối thủ xung quanh.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Tạo khoảng cách, hữu ích khi bị bao vây.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Sức mạnh giảm dần theo khoảng cách.</p>
+                        </div>
+                    </div>
+                    <!-- C-07 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang liên c-07 kc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">C-07 · QUANG LIÊN</span>
+                            <span class="text-xs px-2 py-0.5 bg-sky-950 text-sky-400 border border-sky-700/50 rounded font-bold">[KC]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo những dải sáng quấn lấy mục tiêu, hạn chế khả năng di chuyển.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Khống chế đối thủ để tạo cơ hội tấn công tiếp theo.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Mục tiêu có sức mạnh vượt trội có thể phá trói.</p>
+                        </div>
+                    </div>
+                    <!-- C-08 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang kính c-08 ht pt">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">C-08 · QUANG KÍNH</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-teal-950 text-teal-400 border border-teal-700/50 rounded font-bold">[HT]</span>
+                                <span class="text-xs px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-700/50 rounded font-bold">[PT]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo một mặt kính ánh sáng có khả năng bẻ cong hoặc làm lệch hướng một số đòn phép.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Hỗ trợ phòng thủ và tạo góc phản công bất ngờ.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Khó xử lý đòn diện rộng hoặc đòn có sức mạnh áp đảo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CẤP B -->
+            <div class="skill-group" data-tier="B">
+                <div class="flex items-center gap-3 mb-4 border-b border-zinc-800 pb-2">
+                    <span class="px-3 py-1 bg-zinc-800 text-yellow-400 font-black font-cinzel text-lg rounded border border-yellow-500/30">CẤP B</span>
+                    <h3 class="font-cinzel text-lg font-bold text-zinc-200 uppercase tracking-wide">Chiêu Thức Chiến Đấu</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- B-09 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang tuyến b-09 tc xp">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">B-09 · QUANG TUYẾN</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-yellow-950 text-yellow-400 border border-yellow-700/50 rounded font-bold">[TC]</span>
+                                <span class="text-xs px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-700/50 rounded font-bold">[XP]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Phóng một tia sáng tập trung theo đường thẳng với tốc độ cực cao.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Tấn công nhanh, xuyên phá tốt ở tầm xa.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Cần ngắm chính xác, khó đổi hướng sau khi phóng.</p>
+                        </div>
+                    </div>
+                    <!-- B-10 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang tinh b-10 tc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">B-10 · QUANG TINH</span>
+                            <span class="text-xs px-2 py-0.5 bg-yellow-950 text-yellow-400 border border-yellow-700/50 rounded font-bold">[TC]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo ra nhiều tinh thể ánh sáng rồi bắn đồng loạt vào mục tiêu.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Tấn công nhiều hướng, gây áp lực liên tục.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Sát thương mỗi tinh thể giảm khi chia năng lượng thành quá nhiều phần.</p>
+                        </div>
+                    </div>
+                    <!-- B-11 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang giới b-11 pt">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">B-11 · QUANG GIỚI</span>
+                            <span class="text-xs px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-700/50 rounded font-bold">[PT]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Dựng một vùng kết giới ánh sáng để bảo vệ người bên trong.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Phòng thủ nhiều hướng, có thể bảo vệ đồng đội.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Tiêu hao ma lực lớn khi kết giới chịu nhiều đòn đánh.</p>
+                        </div>
+                    </div>
+                    <!-- B-12 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang dực b-12 dc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">B-12 · QUANG DỰC</span>
+                            <span class="text-xs px-2 py-0.5 bg-indigo-950 text-indigo-400 border border-indigo-700/50 rounded font-bold">[DC]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo đôi cánh ánh sáng giúp người thi triển bay và thay đổi vị trí trên không.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Tăng khả năng cơ động, tạo lợi thế khi chiến đấu trên không.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Khó duy trì lâu, khả năng điều khiển giảm khi bị thương hoặc mất tập trung.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CẤP A -->
+            <div class="skill-group" data-tier="A">
+                <div class="flex items-center gap-3 mb-4 border-b border-zinc-800 pb-2">
+                    <span class="px-3 py-1 bg-zinc-800 text-yellow-400 font-black font-cinzel text-lg rounded border border-yellow-500/30">CẤP A</span>
+                    <h3 class="font-cinzel text-lg font-bold text-zinc-200 uppercase tracking-wide">Chiêu Thức Cao Cấp</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- A-13 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="thiên quang kiếm a-13 tc xp">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">A-13 · THIÊN QUANG KIẾM</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-yellow-950 text-yellow-400 border border-yellow-700/50 rounded font-bold">[TC]</span>
+                                <span class="text-xs px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-700/50 rounded font-bold">[XP]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Triệu hồi một thanh đại kiếm ánh sáng với sức chém mạnh và khả năng xuyên phá cao.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Sát thương lớn, có thể phá vỡ nhiều lớp phòng thủ.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Tiêu hao ma lực đáng kể, đòi hỏi khả năng kiểm soát tốt.</p>
+                        </div>
+                    </div>
+                    <!-- A-14 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang trụ a-14 dr kc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">A-14 · QUANG TRỤ</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-orange-950 text-orange-400 border border-orange-700/50 rounded font-bold">[DR]</span>
+                                <span class="text-xs px-2 py-0.5 bg-sky-950 text-sky-400 border border-sky-700/50 rounded font-bold">[KC]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Triệu hồi các cột sáng từ mặt đất để tấn công và hạn chế đường di chuyển của đối thủ.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Kiểm soát khu vực rộng, có thể đánh nhiều mục tiêu.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Cần xác định vị trí mục tiêu, hiệu quả giảm với đối thủ cơ động cao.</p>
+                        </div>
+                    </div>
+                    <!-- A-15 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang lao a-15 kc">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">A-15 · QUANG LAO</span>
+                            <span class="text-xs px-2 py-0.5 bg-sky-950 text-sky-400 border border-sky-700/50 rounded font-bold">[KC]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo một chiếc lồng ánh sáng bao vây mục tiêu trong không gian giới hạn.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Khống chế mục tiêu trong thời gian dài hơn Quang Liên.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Có thể bị phá bởi đòn tấn công mạnh tập trung vào một điểm.</p>
+                        </div>
+                    </div>
+                    <!-- A-16 -->
+                    <div class="skill-card bg-zinc-900/60 border border-zinc-800 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang thể a-16 ch">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-400 text-sm">A-16 · QUANG THỂ</span>
+                            <span class="text-xs px-2 py-0.5 bg-purple-950 text-purple-400 border border-purple-700/50 rounded font-bold">[CH]</span>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Bao phủ cơ thể bằng ánh sáng, tăng tốc độ phản xạ và sức mạnh của các đòn đánh.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-zinc-800/80">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Nâng cao năng lực cận chiến và khả năng né tránh.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Tiêu hao ma lực liên tục, hiệu quả giảm khi duy trì quá lâu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CẤP S -->
+            <div class="skill-group" data-tier="S">
+                <div class="flex items-center gap-3 mb-4 border-b border-yellow-500/30 pb-2">
+                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 font-black font-cinzel text-lg rounded border border-yellow-500/50">CẤP S</span>
+                    <h3 class="font-cinzel text-lg font-bold text-yellow-400 uppercase tracking-wide">Tuyệt Kỹ Quang Ma Pháp</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- S-17 -->
+                    <div class="skill-card bg-yellow-950/20 border border-yellow-500/30 rounded-xl p-5 card-hover relative overflow-hidden" data-name="thái dương quang cầu s-17 tt dr">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-300 text-sm">S-17 · THÁI DƯƠNG QUANG CẦU</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-700/50 rounded font-bold">[TT]</span>
+                                <span class="text-xs px-2 py-0.5 bg-orange-950 text-orange-400 border border-orange-700/50 rounded font-bold">[DR]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Tạo một quả cầu ánh sáng khổng lồ rồi giải phóng năng lượng thành vụ nổ diện rộng.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-yellow-500/20">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Sát thương diện rộng rất cao, thích hợp kết thúc giao tranh.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Cần thời gian tích tụ, dễ bị gián đoạn khi chuẩn bị.</p>
+                        </div>
+                    </div>
+                    <!-- S-18 -->
+                    <div class="skill-card bg-yellow-950/20 border border-yellow-500/30 rounded-xl p-5 card-hover relative overflow-hidden" data-name="cực quang xuyên phá s-18 tt xp">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-300 text-sm">S-18 · CỰC QUANG XUYÊN PHÁ</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-700/50 rounded font-bold">[TT]</span>
+                                <span class="text-xs px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-700/50 rounded font-bold">[XP]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Nén ma lực ánh sáng thành một tia xuyên phá cực mạnh, tập trung toàn bộ sức mạnh vào một đường bắn.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-yellow-500/20">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Khả năng xuyên thủng phòng thủ cực cao.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Đòi hỏi độ chính xác lớn và tiêu hao lượng ma lực khổng lồ.</p>
+                        </div>
+                    </div>
+                    <!-- S-19 -->
+                    <div class="skill-card bg-yellow-950/20 border border-yellow-500/30 rounded-xl p-5 card-hover relative overflow-hidden" data-name="thiên quang lĩnh vực s-19 tt kc ht">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-300 text-sm">S-19 · THIÊN QUANG LĨNH VỰC</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-700/50 rounded font-bold">[TT]</span>
+                                <span class="text-xs px-2 py-0.5 bg-sky-950 text-sky-400 border border-sky-700/50 rounded font-bold">[KC]</span>
+                                <span class="text-xs px-2 py-0.5 bg-teal-950 text-teal-400 border border-teal-700/50 rounded font-bold">[HT]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Mở rộng một vùng ánh sáng bao phủ chiến trường, làm lộ vị trí mục tiêu và hỗ trợ đồng minh trong phạm vi.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-yellow-500/20">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Kiểm soát chiến trường, phát hiện đối thủ và phối hợp đồng đội.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Phạm vi càng rộng càng tiêu hao nhiều ma lực; hiệu quả phụ thuộc môi trường và sức mạnh đối thủ.</p>
+                        </div>
+                    </div>
+                    <!-- S-20 -->
+                    <div class="skill-card bg-yellow-950/20 border border-yellow-500/30 rounded-xl p-5 card-hover relative overflow-hidden" data-name="quang long phá thiên s-20 tt dr">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-300 text-sm">S-20 · QUANG LONG PHÁ THIÊN</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-700/50 rounded font-bold">[TT]</span>
+                                <span class="text-xs px-2 py-0.5 bg-orange-950 text-orange-400 border border-orange-700/50 rounded font-bold">[DR]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Triệu hồi một con rồng ánh sáng lao về phía trước, cuốn theo năng lượng và tấn công trên diện rộng.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-yellow-500/20">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Tầm đánh xa, sức công phá lớn, có khả năng áp đảo nhiều mục tiêu.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Quỹ đạo tương đối dễ đoán, khó kiểm soát khi đối thủ đổi vị trí liên tục.</p>
+                        </div>
+                    </div>
+                    <!-- S-21 -->
+                    <div class="skill-card bg-yellow-950/20 border border-yellow-500/30 rounded-xl p-5 card-hover relative overflow-hidden md:col-span-2" data-name="vạn quang hội tụ s-21 tt xp">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-yellow-300 text-sm">S-21 · VẠN QUANG HỘI TỤ</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-700/50 rounded font-bold">[TT]</span>
+                                <span class="text-xs px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-700/50 rounded font-bold">[XP]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Hội tụ hàng nghìn tia sáng thành một đòn tấn công duy nhất với sức mạnh tập trung cực lớn.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-yellow-500/20">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Sát thương đơn mục tiêu rất cao, có thể phá vỡ phòng thủ cấp cao.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Cần thời gian tập trung năng lượng, sau khi thi triển sẽ tiêu hao nhiều ma lực.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CẤP EX -->
+            <div class="skill-group" data-tier="EX">
+                <div class="flex items-center gap-3 mb-4 border-b border-amber-400/50 pb-2">
+                    <span class="px-3 py-1 bg-gradient-to-r from-amber-500 to-yellow-300 text-black font-black font-cinzel text-lg rounded shadow-lg shadow-yellow-500/20">CẤP EX</span>
+                    <h3 class="font-cinzel text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-amber-400 uppercase tracking-wide">Thức Tỉnh Quang Ma Pháp</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- EX-22 -->
+                    <div class="skill-card bg-gradient-to-b from-yellow-950/30 to-zinc-900 border border-amber-500/50 rounded-xl p-5 card-hover relative overflow-hidden" data-name="thần quang giáng lâm ex-22 th ch">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-amber-300 text-sm">EX-22 · THẦN QUANG GIÁNG LÂM</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-fuchsia-950 text-fuchsia-400 border border-fuchsia-700/50 rounded font-bold">[TH]</span>
+                                <span class="text-xs px-2 py-0.5 bg-purple-950 text-purple-400 border border-purple-700/50 rounded font-bold">[CH]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Đưa cơ thể vào trạng thái thức tỉnh, bao phủ toàn thân bằng thần quang, tăng mạnh tốc độ, phản xạ và sức mạnh phép thuật.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-amber-500/20">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Tăng toàn diện năng lực chiến đấu, nâng cấp hiệu quả nhiều chiêu thức khác.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Thời gian duy trì ngắn, gây áp lực lớn lên khả năng kiểm soát ma lực.</p>
+                        </div>
+                    </div>
+                    <!-- EX-23 -->
+                    <div class="skill-card bg-gradient-to-b from-yellow-950/30 to-zinc-900 border border-amber-500/50 rounded-xl p-5 card-hover relative overflow-hidden" data-name="vạn quang chung cực ex-23 th tt dr">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="font-cinzel font-bold text-amber-300 text-sm">EX-23 · VẠN QUANG CHUNG CỰC</span>
+                            <div class="flex gap-1">
+                                <span class="text-xs px-2 py-0.5 bg-fuchsia-950 text-fuchsia-400 border border-fuchsia-700/50 rounded font-bold">[TH]</span>
+                                <span class="text-xs px-2 py-0.5 bg-rose-950 text-rose-400 border border-rose-700/50 rounded font-bold">[TT]</span>
+                                <span class="text-xs px-2 py-0.5 bg-orange-950 text-orange-400 border border-orange-700/50 rounded font-bold">[DR]</span>
+                            </div>
+                        </div>
+                        <p class="text-zinc-300 text-sm mb-4 leading-relaxed">Giải phóng toàn bộ lượng quang ma lực đã tích tụ, tạo nên một trận mưa ánh sáng khổng lồ bao phủ chiến trường.</p>
+                        <div class="text-xs space-y-1 pt-3 border-t border-amber-500/20">
+                            <p class="text-emerald-400"><strong class="text-emerald-500">＋ Ưu điểm:</strong> Tuyệt kỹ tối thượng, sức công phá diện rộng và khả năng áp đảo cực cao.</p>
+                            <p class="text-rose-400"><strong class="text-rose-500">－ Giới hạn:</strong> Tiêu hao gần như toàn bộ ma lực dự trữ, cần điều kiện thích hợp để thi triển an toàn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Summary Section -->
+        <section class="mt-12 bg-zinc-900/90 border border-yellow-500/30 rounded-2xl p-6 relative overflow-hidden backdrop-blur-md">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-yellow-500/10 rounded-full blur-2xl"></div>
+            
+            <h2 class="text-xl font-bold font-cinzel text-yellow-400 mb-6 flex items-center gap-2 border-b border-zinc-800 pb-3">
+                <i class="fa-solid fa-chart-pie"></i> TỔNG KẾT HỆ MA PHÁP
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-sm">
+                <!-- Stats Grid -->
+                <div class="bg-zinc-950/60 p-4 rounded-xl border border-zinc-800">
+                    <h3 class="font-bold text-zinc-300 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-list-ol text-yellow-500"></i> Phân Bố Cấp Bậc (23 Chiêu)
+                    </h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="bg-zinc-900 p-2 rounded flex justify-between"><span class="text-zinc-400">Cấp D:</span> <span class="font-bold text-yellow-400">4 chiêu</span></div>
+                        <div class="bg-zinc-900 p-2 rounded flex justify-between"><span class="text-zinc-400">Cấp C:</span> <span class="font-bold text-yellow-400">4 chiêu</span></div>
+                        <div class="bg-zinc-900 p-2 rounded flex justify-between"><span class="text-zinc-400">Cấp B:</span> <span class="font-bold text-yellow-400">4 chiêu</span></div>
+                        <div class="bg-zinc-900 p-2 rounded flex justify-between"><span class="text-zinc-400">Cấp A:</span> <span class="font-bold text-yellow-400">4 chiêu</span></div>
+                        <div class="bg-zinc-900 p-2 rounded flex justify-between"><span class="text-zinc-400">Cấp S:</span> <span class="font-bold text-yellow-400">5 chiêu</span></div>
+                        <div class="bg-zinc-900 p-2 rounded flex justify-between"><span class="text-zinc-400">Cấp EX:</span> <span class="font-bold text-yellow-400">2 chiêu</span></div>
+                    </div>
+                </div>
+
+                <!-- Combat Style -->
+                <div class="bg-zinc-950/60 p-4 rounded-xl border border-zinc-800">
+                    <h3 class="font-bold text-zinc-300 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-crosshairs text-yellow-500"></i> Phong Cách Chiến Đấu
+                    </h3>
+                    <p class="text-zinc-400 text-xs leading-relaxed">
+                        Tấn công tốc độ cao, xuyên phá phòng thủ, khống chế mục tiêu và công kích diện rộng cực mạnh.
+                    </p>
+                </div>
+
+                <!-- Advantages & Disadvantages -->
+                <div class="bg-zinc-950/60 p-4 rounded-xl border border-zinc-800 space-y-3 text-xs">
+                    <div>
+                        <h4 class="font-bold text-emerald-400 mb-1 flex items-center gap-1">
+                            <i class="fa-solid fa-shield-halved"></i> Ưu Thế
+                        </h4>
+                        <p class="text-zinc-400">Tầm đánh xa, tốc độ cực nhanh, linh hoạt chuyển đổi giữa công và thủ.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-rose-400 mb-1 flex items-center gap-1">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Nhược Điểm
+                        </h4>
+                        <p class="text-zinc-400">Nhiều tuyệt kỹ tiêu hao lượng lớn ma lực; các đòn tập trung đòi hỏi thời gian ngắm hoặc tích tụ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-xs text-zinc-600 border-t border-zinc-900 pt-6">
+        <p>Grimoire — Quang Ma Pháp System Archive</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        function filterTier(tier) {
+            // Update active button styling
+            const buttons = document.querySelectorAll('.btn-filter');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-yellow-500', 'text-black');
+                btn.classList.add('bg-zinc-900', 'text-zinc-300');
+            });
+
+            event.currentTarget.classList.remove('bg-zinc-900', 'text-zinc-300');
+            event.currentTarget.classList.add('bg-yellow-500', 'text-black');
+
+            // Filter Skill Groups
+            const groups = document.querySelectorAll('.skill-group');
+            groups.forEach(group => {
+                if (tier === 'ALL' || group.getAttribute('data-tier') === tier) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+
+        function searchSkills() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.skill-card');
+            const groups = document.querySelectorAll('.skill-group');
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Hide empty groups during search
+            groups.forEach(group => {
+                const visibleCards = group.querySelectorAll('.skill-card[style="display: block;"], .skill-card:not([style*="display: none"])');
+                if (query !== "" && visibleCards.length === 0) {
+                    group.style.display = 'none';
+                } else if (query === "") {
+                    group.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
